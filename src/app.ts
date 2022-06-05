@@ -13,7 +13,7 @@
 // tsc app.ts - компиляция
 // tsc --watch - автообновление при сохранении
 
-// 01 ==============================================
+// 01 Simple Types ==============================================
 
 // простые типы js
 // number, string, boolean, null, undefined, object, Symbol, BigInt
@@ -33,7 +33,7 @@ const printString = (): void => {
 };
 printString();
 
-// 02 ==============================================
+// 02 Types TS ==============================================
 
 let list: number[] = [1, 2, 3]; // array number type
 let listArray: Array<number> = [1, 2, 3]; // Generic type
@@ -51,10 +51,10 @@ notSure = "string";
 
 // Enum Type
 enum Directins {
-  Up = 2,
-  Down = 3,
-  Left = 4,
-  Right = 5,
+  Up = 1,
+  Down = 2,
+  Left = 3,
+  Right = 4,
 }
 console.log("Enum ======================");
 console.log("Enum Directins.Up", Directins.Up);
@@ -89,3 +89,32 @@ type Name = string | boolean; // Custom type creation
 let projectId: Name;
 projectId = "42"; // no Error
 // projectId = 10 // Type 'number' is not assignable to type 'string'
+
+// 03 Enum ==============================================
+
+console.log("Enum ======================");
+console.log("Enum Directins.Up", Directins.Up, Directins[1]);
+console.log("Enum Directins.Down", Directins.Down, Directins[2]);
+console.log("Enum Directins.Left", Directins.Left, Directins[3]);
+console.log("Enum Directins.Right", Directins.Right, Directins[4]);
+
+// Custom mame for keys
+enum links {
+  youtube = "https://youtube.com",
+  twitter = "https://twitter.com",
+  facebook = "https://facebook.com",
+}
+console.log("youtube = ", links.youtube); // https://youtube.com
+
+// const enum (with using)
+
+const enum linksSites {
+  youtube = "https://youtube.com",
+  twitter = "https://twitter.com",
+  facebook = "https://facebook.com",
+}
+
+// Using of enum properties
+const arr = [linksSites.youtube, linksSites.facebook];
+console.log("enum arr linksSites =", arr);
+// ================================
