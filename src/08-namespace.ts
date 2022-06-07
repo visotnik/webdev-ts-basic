@@ -9,12 +9,15 @@ const isEmpty = <T>(data: T): boolean => !data;
 // Define Namespace
 
 namespace Utils {
-  const SECRET: string = `12345`;
+  export const SECRET: string = `12345`;
   const PI: number = 3.141592;
 
-  const getPass = (name: string, age: number) => `${name}${age}`;
+  export const getPass = (name: string, age: number) => `${name}${age}`;
   const isEmpty = <T>(data: T): boolean => !data;
 }
 
-//Try to call method outside namespace
-//const myPass = Utils.getPass("Mary", 34);
+// no Error
+const myPass = Utils.getPass("Mary", 34);
+
+//Try to call method outside namespace: ERROR
+// const myisEmpty = Utils.isEmpty(32)
